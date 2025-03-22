@@ -1,0 +1,15 @@
+Flask
+pandas
+pypdf
+Flask-Cors
+python-docx
+nltk
+num2words
+deep-translator
+scikit-learn
+pymilvus
+gunicorn
+numpy==1.26.4
+python-dotenv
+sentence-transformers
+torch==2.2.2
