@@ -34,6 +34,7 @@ Set up the Vite + React frontend (ensure Node.js is installed):
 
 ## Important Links
 Links to datasets used for training AI models:
+
 **1. job description in indonesian :** https://www.kaggle.com/datasets/canggih/jog-description-and-salary-in-indonesia
 
 **2. it job description :** https://www.kaggle.com/datasets/mscgeorges/itjobpostdescriptions?resource=download
