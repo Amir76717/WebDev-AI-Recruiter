@@ -1,51 +1,88 @@
-# Job-CV Matching System with Vector Search
+# WebDev-AI-Recruiter: Flask + React Application
+WebDev AI Recruiter integrates advanced AI models to match job descriptions with resumes, facilitating an automated recruitment process. Built with Flask and React, this application offers a user-friendly interface and efficient backend services.
 
-This project is an AI-powered job matching web application aimed at helping job seekers, especially in the IT industry, find suitable job opportunities based on their skills. The system leverages vector search technology to match resumes with job descriptions effectively.
+# Table of Contents
+- Getting Started
+  - Server Setup
+   - Client Setup
+- Important Links
+  - Datasets
+  - Model
+- Project Tasks
+- Deployment
+  - Flask Application
+  - React Application
 
-## Features
-- **Job Matching via Vector Search**: Matches candidates' resumes with job descriptions using vector embeddings.
-- **Resume Upload**: Users can upload their resumes in various formats.
-- **Top Job Recommendations**: The system retrieves and displays the top 5 most similar job descriptions.
-- **High-Quality Embeddings**: Utilizes a fine-tuned model to ensure accurate and relevant job matching.
-- **Scalable and Fast Search**: Supports fast similarity searches even with large datasets.
+## Getting Started
+**Server Setup**
 
-## Workflow
-1. **Data Collection**: Various datasets related to job descriptions and resumes were collected from Kaggle and Hugging Face.
-2. **Preprocessing**: Job descriptions and resumes were preprocessed and converted into embeddings using the SBERT model.
-3. **Vector Storage**: The preprocessed job descriptions were stored as vectors in the Milvus vector database.
-4. **Job Matching**: When a user uploads a resume, it is converted into a vector using the SBERT model, and the system retrieves the top 5 most similar job descriptions based on cosine similarity.
-5. **Results Display**: The matched job descriptions are presented to the user.
+Set up the Flask backend:
 
-## Website Interface
-### Resume Upload Page
-Users can upload or paste their resumes on this page.
+    cd server
+    virtualenv env
+    env\Scripts\activate
+    pip install -r requirements.txt
+    flask run
+    
+**Client Setup**
 
-![Resume Upload Page](https://github.com/user-attachments/assets/a05caf28-2862-4694-93d5-1b9e49739d9a)
+Set up the Vite + React frontend (ensure Node.js is installed):
 
-### Results Page
-This page displays the top 5 job descriptions that match the uploaded resume.
+    cd client
+    npm install --legacy-peer-deps
+    npm run dev
 
-![Results Page](https://github.com/user-attachments/assets/fc0703e4-9228-4c41-bf61-4777299046a8)
+## Important Links
+Links to datasets used for training AI models:
 
-## Datasets
-The following datasets were used for fine-tuning the model and building the vector database:
+**1. job description in indonesian :** 
 
-| Source | Number of Entries | Column Descriptions |
-|--------|-------------------|---------------------|
-| [Kaggle - Job Description and Salary in Indonesia](https://www.kaggle.com/datasets/canggih/jog-description-and-salary-in-indonesia) | 34,746 | job_title, location, salary_currency, career_level, experience_level, education_level, employment_type, job_function, job_benefits, company_process_time, company_size, company_industry, job_description, salary |
-| [Kaggle - IT Job Post Descriptions](https://www.kaggle.com/datasets/mscgeorges/itjobpostdescriptions?resource=download) | 10,000 | query, job title, description |
-| [Kaggle - Resume Dataset](https://www.kaggle.com/datasets/gauravduttakiit/resume-dataset) | 962 | category, resume |
-| [Hugging Face - Resume-Job Description Fit](https://huggingface.co/datasets/cnamuangtoun/resume-job-description-fit) | 8,000 | resume_text, job_description_text, label (fit, not fit, potential) |
-| [Hugging Face - Resume Dataset](https://huggingface.co/datasets/InferencePrince555/Resume-Dataset) | 32,481 | instruction, resume_text |
+https://www.kaggle.com/datasets/canggih/jog-description-and-salary-in-indonesia
 
+**2. it job description :** 
 
-## Technology Stack
-- **Frontend**: ReactJS (Vite)
-- **Backend**: Flask
-- **Model**: Sentence-BERT (SBERT)
-- **Vector Database**: Zilliz Milvus
-- **Deployment**: Docker, GCP Cloud Run
+https://www.kaggle.com/datasets/mscgeorges/itjobpostdescriptions?resource=download
 
-## Dataset and Model
-- **Link Dataset** : https://huggingface.co/datasets/bwbayu/job_cv_supervised
-- **Link Model** : https://huggingface.co/bwbayu/sbert_model_jobcv/tree/main
+**3. resume 1 :** 
+
+https://www.kaggle.com/datasets/gauravduttakiit/resume-dataset
+
+**4. resume 2 :** 
+
+https://huggingface.co/datasets/InferencePrince555/Resume-Dataset
+
+**5. job description - resume pair :** 
+
+https://huggingface.co/datasets/cnamuangtoun/resume-job-description-fit 
+
+## Model
+https://huggingface.co/bwbayu/sbert_model_jobcv/tree/main
+
+## Project Tasks
+- CI/CD: Continuous integration and deployment.
+- Domain Configuration: Manage custom domain settings.
+
+## Deployment
+Deploy the Flask app using Google Cloud Run:
+
+    create Dockerfile and .dockerignore
+    gcloud init
+    gcloud run deploy --source .
+
+**Configure environment variables and memory settings in the Cloud Run dashboard**
+- setting env -> service detail -> edit & deploy new revision -> variables & secrets
+- update memory -> service detail -> edit & deploy new revision -> resources
+
+## React Application
+Deploy the React app on Google Cloud Run:
+
+    npm run build
+    create Dockerfile, .dockerignore, nginx.conf
+    gcloud init
+    gcloud run deploy --source .
+
+## Contributing
+For contributions, please fork the repository, create a feature branch, and submit a pull request.
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
