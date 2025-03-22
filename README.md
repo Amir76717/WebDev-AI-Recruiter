@@ -35,15 +35,25 @@ Set up the Vite + React frontend (ensure Node.js is installed):
 ## Important Links
 Links to datasets used for training AI models:
 
-**1. job description in indonesian :** https://www.kaggle.com/datasets/canggih/jog-description-and-salary-in-indonesia
+**1. job description in indonesian :** 
 
-**2. it job description :** https://www.kaggle.com/datasets/mscgeorges/itjobpostdescriptions?resource=download
+https://www.kaggle.com/datasets/canggih/jog-description-and-salary-in-indonesia
 
-**3. resume 1 :** https://www.kaggle.com/datasets/gauravduttakiit/resume-dataset
+**2. it job description :** 
 
-**4. resume 2 :** https://huggingface.co/datasets/InferencePrince555/Resume-Dataset
+https://www.kaggle.com/datasets/mscgeorges/itjobpostdescriptions?resource=download
 
-**5. job description - resume pair :** https://huggingface.co/datasets/cnamuangtoun/resume-job-description-fit 
+**3. resume 1 :** 
+
+https://www.kaggle.com/datasets/gauravduttakiit/resume-dataset
+
+**4. resume 2 :** 
+
+https://huggingface.co/datasets/InferencePrince555/Resume-Dataset
+
+**5. job description - resume pair :** 
+
+https://huggingface.co/datasets/cnamuangtoun/resume-job-description-fit 
 
 ## Model
 https://huggingface.co/bwbayu/sbert_model_jobcv/tree/main
@@ -59,9 +69,9 @@ Deploy the Flask app using Google Cloud Run:
     gcloud init
     gcloud run deploy --source .
 
-- **Configure environment variables and memory settings in the Cloud Run dashboard**
-  - setting env -> service detail -> edit & deploy new revision -> variables & secrets
-  - update memory -> service detail -> edit & deploy new revision -> resources
+**Configure environment variables and memory settings in the Cloud Run dashboard**
+- setting env -> service detail -> edit & deploy new revision -> variables & secrets
+- update memory -> service detail -> edit & deploy new revision -> resources
 
 ## React Application
 Deploy the React app on Google Cloud Run:
